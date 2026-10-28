@@ -1,8 +1,22 @@
-fenfa-portal enthaelt Software von Dritten:
+Dieses Projekt ist kein offizielles Projekt von Fenfa.
 
-Fenfa, https://github.com/openprx/fenfa, MIT-Lizenz.
-Das Docker-Image baut Fenfa aus dem Quellcode (siehe FENFA_REF im Dockerfile)
-und legt dessen Lizenztext unter /licenses/fenfa-LICENSE ab.
+Original
+--------
+Fenfa, https://github.com/openprx/fenfa
+Copyright (c) 2024 Fenfa Contributors, MIT-Lizenz
+
+Das Docker-Image baut Fenfa beim Bauen aus dem Quellcode (siehe FENFA_REF im
+Dockerfile) und legt dessen Lizenztext unter /licenses/fenfa-LICENSE ab. Am
+Quellcode wird nur die deutsche Uebersetzung ergaenzt (siehe unten).
+
+Ergaenzungen in diesem Repository (Alexander Schubert, MIT-Lizenz)
+------------------------------------------------------------------
+- App-Portal (portal/): Startseite im App-Store-Stil mit Passwort-Login,
+  Install-Buttons und Icon-Upload
+- Deutsche Uebersetzung von Fenfa (overlay/ und drei Textersetzungen im
+  Dockerfile)
+- Zusammenfassung zu einem Container mit nginx, Unraid-Templates,
+  Umzugs- und Mac-Skripte
 
 Weitere Pakete im Image (nginx, Python, Alpine Linux) stehen unter ihren
 jeweiligen Lizenzen.

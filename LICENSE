@@ -2,6 +2,11 @@ MIT License
 
 Copyright (c) 2026 Alexander Schubert
 
+Diese Lizenz gilt für die Ergänzungen in diesem Repository: das App-Portal
+(portal/), die deutsche Übersetzung (overlay/), die Container-Einrichtung
+(Dockerfile, docker/, scripts/, unraid/, mac/) und die Dokumentation.
+Fenfa selbst stammt nicht von mir, siehe NOTICE.
+
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights

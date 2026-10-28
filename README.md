@@ -2,6 +2,8 @@
 
 Ein eigener App-Store für private Apps, in einem Docker-Container, als Unraid-Template installierbar.
 
+> **Basiert auf [Fenfa](https://github.com/openprx/fenfa)** (MIT) von den Fenfa-Entwicklern. Von mir stammen nur die Ergänzungen: das **Portal** (Startseite, Login, Icons), die **deutsche Übersetzung** und die Einrichtung als ein Container mit Unraid-Template. Dies ist kein offizielles Fenfa-Projekt.
+
 - **Verteil-Server:** [Fenfa](https://github.com/openprx/fenfa) (MIT) verteilt iOS-, Android- und macOS-Builds. Für iOS erzeugt es das `manifest.plist` und den `itms-services://`-Link (Ad-hoc-OTA).
 - **Portal:** Startseite im App-Store-Stil mit Passwort-Login, Install-Buttons pro Plattform und Icon-Upload.
 - **Ein Port:** Ein eingebauter nginx leitet `/` und `/portal/` an das Portal, alles andere an Fenfa. Der Nginx Proxy Manager braucht keine Sonderregeln.
@@ -89,6 +91,6 @@ Daten und Zugangsdaten bleiben in `/data` erhalten. Bei einer neuen Fenfa-Versio
 
 Wer Fenfa und das Portal bisher als zwei Container betreibt: beide stoppen, den alten `data`-Ordner als `/data` und den alten `uploads`-Ordner als `/app/uploads` einbinden, die alten Tokens in den Template-Feldern eintragen. Der NPM-Proxy zeigt dann nur noch auf den einen Port, die zwei `location`-Regeln entfallen.
 
-## Lizenz
+## Lizenz und Herkunft
 
-MIT, siehe [LICENSE](LICENSE). Das Image enthält Fenfa (MIT), siehe [NOTICE](NOTICE).
+Fenfa ist das Werk der Fenfa-Entwickler (MIT-Lizenz, siehe [openprx/fenfa](https://github.com/openprx/fenfa)). Das Image enthält dessen Lizenztext unter `/licenses/fenfa-LICENSE`. Meine Ergänzungen (Portal, Übersetzung, Container-Einrichtung, Skripte) stehen ebenfalls unter der MIT-Lizenz, siehe [LICENSE](LICENSE) und [NOTICE](NOTICE).
