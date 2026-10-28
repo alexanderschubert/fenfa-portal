@@ -16,6 +16,8 @@ COPY overlay/ /overlay/
 RUN cp -r /overlay/web/. web/ \
     && test "$(grep -c "'zh' ? '更新说明' : 'Changelog'" web/front/src/main.ts)" = 1 \
     && sed -i "s/'zh' ? '更新说明' : 'Changelog'/'zh' ? '更新说明' : getLanguage() === 'de' ? 'Änderungen' : 'Changelog'/" web/front/src/main.ts
+# Projektlogo in der Admin-Oberflaeche (Anmeldung, Seitenmenue)
+RUN node /overlay/patch-admin.mjs
 RUN cd web/front && npm install && npm run build
 RUN cd web/admin && npm install && npm run build
 
@@ -35,6 +37,17 @@ RUN f=internal/server/handlers/udid.go \
         -e 's/Register your device to install: /Gerät registrieren, um zu installieren: /' \
         -e 's/"Install this profile to register your device for app installation\. Your device information will be collected for authorization purposes\."/"Installiere dieses Profil, um dein Gerät für die App-Installation zu registrieren. Deine Geräteinformationen werden nur zur Autorisierung erfasst."/' \
         $f
+# Seiten-Icon, Titel und Sprache der HTML-Vorlagen
+RUN for f in internal/web/templates/admin.html internal/web/templates/app.html; do \
+      ( test "$(grep -c '<html lang="zh-CN">' $f)" = 1 \
+        && test "$(grep -c '<meta charset="utf-8" />' $f)" = 1 \
+        && sed -i \
+          -e 's|<html lang="zh-CN">|<html lang="de">|' \
+          -e 's|<meta charset="utf-8" />|<meta charset="utf-8" /><link rel="icon" type="image/svg+xml" href="/portal/logo" /><link rel="apple-touch-icon" href="/portal/logo.png" />|' \
+          $f ) || exit 1; \
+    done \
+    && test "$(grep -c '"Title": "Modern distribution"' internal/server/router.go)" = 1 \
+    && sed -i 's|"Title": "Modern distribution"|"Title": "App-Verteilung"|' internal/server/router.go
 RUN go build -ldflags="-s -w -X main.version=${FENFA_REF}" -o /out/fenfa ./cmd/server
 
 FROM alpine:3.22

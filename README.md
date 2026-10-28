@@ -67,6 +67,8 @@ Sonst scheitern große IPA-Uploads.
    Vorher in `mac/ExportOptions.plist` die Team-ID eintragen. Alternativ die IPA im Admin über **Upload New Version** hochladen.
 4. `https://apps.example.com/` zeigt die Übersicht. Auf dem iPhone in **Safari** öffnen und auf Installieren tippen.
 
+Das Projektlogo erscheint als Seiten-Icon, auf der Anmeldung und Startseite des Portals und im Admin-Menü von Fenfa. In der Unraid-Docker-Übersicht lädt Unraid das Icon über die Adresse im Template (`<Icon>`), das Repository muss dafür öffentlich sein.
+
 Icons: Unten auf der Startseite **Einstellungen**, pro App ein Bild wählen. Ohne eigenes Icon wird eines mit dem Anfangsbuchstaben erzeugt.
 
 ## Sicherheit

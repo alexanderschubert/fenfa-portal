@@ -70,6 +70,8 @@ h1{font-size:34px;line-height:1.15;font-weight:700;letter-spacing:-.01em;margin:
 .btn{display:inline-block;background:var(--pill);color:var(--blue);text-decoration:none;text-transform:uppercase;font-weight:700;font-size:15px;letter-spacing:.01em;padding:7px 20px;border-radius:999px;white-space:nowrap}
 .btn:active{opacity:.6}
 .empty,.err{color:var(--muted);padding:12px 0;font-size:15px}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.mark{width:46px;height:46px;border-radius:11px;flex:none;margin-top:4px}
 .foot{color:var(--muted);font-size:12px;text-align:center;margin-top:28px}
 .foot form{display:inline}
 .foot a{color:var(--blue);text-decoration:none}
@@ -199,7 +201,7 @@ def render(apps, error=None):
         cards.append('<div class="empty">Noch keine Apps veröffentlicht.</div>')
     return page(
         "Meine Apps",
-        '<main><p class="date">%s</p><h1>Apps</h1>%s'
+        '<main><div class="top"><div><p class="date">%s</p><h1>Apps</h1></div><img class="mark" src="/portal/logo" alt=""></div>%s'
         '<div class="foot">Auf dem iPhone bitte in Safari öffnen · Aktualisiert %s · '
         '<a href="/portal/settings">Einstellungen</a> · '
         '<form method="post" action="/portal/logout"><button>Abmelden</button></form></div></main>'
