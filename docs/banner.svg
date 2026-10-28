@@ -28,6 +28,6 @@
     <text x="430" y="304" font-size="96" font-weight="700" fill="#ffffff" letter-spacing="-1">fenfa-portal</text>
     <text x="432" y="372" font-size="36" fill="#c3cbe8">Dein eigener App-Store für private Apps</text>
     <text x="432" y="428" font-size="28" fill="#7f8bb5">iOS · macOS · Android · selbst gehostet</text>
-    <text x="640" y="572" font-size="22" text-anchor="middle" fill="#5d6896">Basiert auf Fenfa (MIT) · Portal und deutsche Übersetzung von Alexander Schubert</text>
+    <text x="640" y="572" font-size="22" text-anchor="middle" fill="#5d6896">Basiert auf Fenfa (MIT) · mit Portal und deutscher Übersetzung</text>
   </g>
 </svg>
