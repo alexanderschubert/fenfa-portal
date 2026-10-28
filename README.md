@@ -1,3 +1,5 @@
+<p align="center"><img src="docs/banner.svg" alt="fenfa-portal" width="720"></p>
+
 # fenfa-portal
 
 Ein eigener App-Store für private Apps, in einem Docker-Container, als Unraid-Template installierbar.
