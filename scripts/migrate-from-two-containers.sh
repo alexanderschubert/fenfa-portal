@@ -64,7 +64,7 @@ sed \
   -e "s|/mnt/user/appdata/fenfa-portal/data|$OLD_DIR/data|g" \
   -e "s|/mnt/user/appdata/fenfa-portal/uploads|$OLD_DIR/uploads|g" \
   -e "/Name=\"Oeffentliche URL\"/ s|/>\$|>$DOMAIN</Config>|" \
-  "$SRC_DIR/unraid/fenfa-portal-local.xml" > "$OUT"
+  "$SRC_DIR/unraid/fenfa-portal-local.xml.template" > "$OUT"
 echo "Template: $OUT"
 
 say "5/5 Alte Container stoppen"

@@ -32,7 +32,7 @@ Mac (Xcode)  --release.sh-->  fenfa-portal (Unraid)  <--Safari--  iPhone / iPad 
 ```bash
 cd /mnt/user/appdata/fenfa-portal-src      # dieser Ordner
 docker build -t fenfa-portal:local .
-cp unraid/fenfa-portal-local.xml /boot/config/plugins/dockerMan/templates-user/
+cp unraid/fenfa-portal-local.xml.template /boot/config/plugins/dockerMan/templates-user/fenfa-portal-local.xml
 ```
 
 Dann im Docker-Tab **Add Container** und das Template `fenfa-portal` wählen.
