@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>fenfa-portal</Name>
+  <Repository>fenfa-portal:local</Repository>
+  <Registry/>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project/>
+  <Overview>Wie fenfa-portal.xml, aber fuer ein lokal gebautes Image (docker build -t fenfa-portal:local .). Gedacht fuer die Zeit vor dem GitHub-Upload. Eigener App-Store fuer private iOS-, macOS- und Android-Apps mit Startseite, Passwort-Login und Icon-Upload.</Overview>
+  <Category>Tools: Productivity:</Category>
+  <WebUI>http://[IP]:[PORT:8080]/</WebUI>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/alexanderschubert/fenfa-portal/main/portal/logo.png</Icon>
+  <ExtraParams>--restart=unless-stopped</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="Web-Port" Target="8080" Default="7011" Mode="tcp" Description="Port fuer Startseite, Admin und Downloads. Hier zeigt auch der Nginx Proxy Manager hin." Type="Port" Display="always" Required="true" Mask="false">7011</Config>
+  <Config Name="Daten" Target="/data" Default="/mnt/user/appdata/fenfa-portal/data" Mode="rw" Description="Datenbank, Icons und credentials.env" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/fenfa-portal/data</Config>
+  <Config Name="Uploads (Builds)" Target="/app/uploads" Default="/mnt/user/appdata/fenfa-portal/uploads" Mode="rw" Description="Hochgeladene IPA-, APK- und DMG-Dateien" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/fenfa-portal/uploads</Config>
+  <Config Name="Oeffentliche URL" Target="FENFA_PRIMARY_DOMAIN" Default="" Mode="" Description="Die https-Adresse, unter der du den Dienst erreichst, ohne Slash am Ende, z.B. https://apps.example.com" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="Admin-Token" Target="FENFA_ADMIN_TOKEN" Default="" Mode="" Description="Anmeldung unter /admin. Leer lassen: wird beim ersten Start erzeugt." Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="Upload-Token" Target="FENFA_UPLOAD_TOKEN" Default="" Mode="" Description="Fuer Uploads per Skript (release.sh). Leer lassen: wird erzeugt." Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="Passwort der Startseite" Target="PORTAL_PASSWORD" Default="" Mode="" Description="Login der App-Uebersicht. Leer lassen: wird erzeugt." Type="Variable" Display="always" Required="false" Mask="true"/>
+</Container>

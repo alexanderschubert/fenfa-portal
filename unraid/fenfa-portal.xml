@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>fenfa-portal</Name>
+  <Repository>ghcr.io/alexanderschubert/fenfa-portal:latest</Repository>
+  <Registry>https://github.com/alexanderschubert/fenfa-portal/pkgs/container/fenfa-portal</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/alexanderschubert/fenfa-portal/issues</Support>
+  <Project>https://github.com/alexanderschubert/fenfa-portal</Project>
+  <Overview>Eigener App-Store fuer private iOS-, macOS- und Android-Apps. Enthaelt den Verteil-Server Fenfa (Ad-hoc-OTA mit itms-services) und eine Startseite im App-Store-Stil mit Passwort-Login und Icon-Upload. Fuer iOS ist eine oeffentlich erreichbare https-Adresse mit gueltigem Zertifikat noetig, zum Beispiel ueber Nginx Proxy Manager. Beim ersten Start werden Admin-Token, Upload-Token und Passwort erzeugt und im Container-Log angezeigt (und in /data/credentials.env gespeichert).</Overview>
+  <Category>Tools: Productivity:</Category>
+  <WebUI>http://[IP]:[PORT:8080]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/alexanderschubert/fenfa-portal/main/unraid/fenfa-portal.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/alexanderschubert/fenfa-portal/main/portal/logo.png</Icon>
+  <ExtraParams>--restart=unless-stopped</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="Web-Port" Target="8080" Default="7011" Mode="tcp" Description="Port fuer Startseite, Admin und Downloads. Hier zeigt auch der Nginx Proxy Manager hin." Type="Port" Display="always" Required="true" Mask="false">7011</Config>
+  <Config Name="Daten" Target="/data" Default="/mnt/user/appdata/fenfa-portal/data" Mode="rw" Description="Datenbank, Icons und credentials.env" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/fenfa-portal/data</Config>
+  <Config Name="Uploads (Builds)" Target="/app/uploads" Default="/mnt/user/appdata/fenfa-portal/uploads" Mode="rw" Description="Hochgeladene IPA-, APK- und DMG-Dateien" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/fenfa-portal/uploads</Config>
+  <Config Name="Oeffentliche URL" Target="FENFA_PRIMARY_DOMAIN" Default="" Mode="" Description="Die https-Adresse, unter der du den Dienst erreichst, ohne Slash am Ende, z.B. https://apps.example.com" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="Admin-Token" Target="FENFA_ADMIN_TOKEN" Default="" Mode="" Description="Anmeldung unter /admin. Leer lassen: wird beim ersten Start erzeugt." Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="Upload-Token" Target="FENFA_UPLOAD_TOKEN" Default="" Mode="" Description="Fuer Uploads per Skript (release.sh). Leer lassen: wird erzeugt." Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="Passwort der Startseite" Target="PORTAL_PASSWORD" Default="" Mode="" Description="Login der App-Uebersicht. Leer lassen: wird erzeugt." Type="Variable" Display="always" Required="false" Mask="true"/>
+</Container>

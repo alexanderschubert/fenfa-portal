@@ -1,0 +1,17 @@
+services:
+  fenfa-portal:
+    image: ghcr.io/alexanderschubert/fenfa-portal:latest
+    # Vor dem GitHub-Upload lokal bauen:  build: .
+    container_name: fenfa-portal
+    restart: unless-stopped
+    ports:
+      - "7011:8080"
+    environment:
+      FENFA_PRIMARY_DOMAIN: https://apps.example.com
+      # Leer lassen, dann werden die Werte beim ersten Start erzeugt (siehe docker logs):
+      # FENFA_ADMIN_TOKEN:
+      # FENFA_UPLOAD_TOKEN:
+      # PORTAL_PASSWORD:
+    volumes:
+      - ./data:/data
+      - ./uploads:/app/uploads

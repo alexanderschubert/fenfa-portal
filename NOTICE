@@ -1,0 +1,8 @@
+fenfa-portal enthaelt Software von Dritten:
+
+Fenfa, https://github.com/openprx/fenfa, MIT-Lizenz.
+Das Docker-Image baut Fenfa aus dem Quellcode (siehe FENFA_REF im Dockerfile)
+und legt dessen Lizenztext unter /licenses/fenfa-LICENSE ab.
+
+Weitere Pakete im Image (nginx, Python, Alpine Linux) stehen unter ihren
+jeweiligen Lizenzen.

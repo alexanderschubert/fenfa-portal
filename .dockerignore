@@ -1,0 +1,10 @@
+.git
+.github
+data
+uploads
+unraid
+mac
+*.md
+.env
+*.env
+__pycache__
